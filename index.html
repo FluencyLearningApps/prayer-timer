@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div id="setup-screen" class="screen active">
+        <h1>Prayer Timer</h1>
+
+        <div class="card">
+            <h2>1. Select Duration</h2>
+            <div class="duration-selector">
+                <input type="range" id="duration-slider" min="1" max="120" value="60">
+                <div class="duration-input-container">
+                    <div class="time-input-group">
+                        <input type="number" id="duration-hours" min="0" max="99" value="1">
+                        <label for="duration-hours">h</label>
+                    </div>
+                    <span>:</span>
+                    <div class="time-input-group">
+                        <input type="number" id="duration-minutes" min="0" max="59" value="0">
+                        <label for="duration-minutes">m</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>2. Choose Structure</h2>
+            <div class="structure-options">
+                <button id="preset-btn" class="tab-btn active">Preset</button>
+                <button id="custom-btn" class="tab-btn">Custom</button>
+            </div>
+
+            <div id="preset-mode" class="mode-content active">
+                <p>Using the classic 12-step prayer structure.</p>
+                <ol id="preset-list">
+                    <!-- Preset items will be populated by JS -->
+                </ol>
+            </div>
+
+            <div id="custom-mode" class="mode-content">
+                <div id="custom-list-container">
+                    <p>No custom sets yet. Create one!</p>
+                    <!-- Custom sets will be populated here -->
+                </div>
+                <div id="custom-set-editor-container" class="custom-set-editor-container">
+                    <input type="text" id="custom-set-name" placeholder="Name your prayer set">
+                    <div id="custom-steps-list">
+                        <!-- Draggable steps will be added here -->
+                    </div>
+                    <div class="add-step-container">
+                        <input type="text" id="new-step-input" placeholder="Add a new step">
+                        <button id="add-step-btn">Add</button>
+                    </div>
+                    <div class="editor-actions">
+                        <button id="save-set-btn"><i class="fas fa-save"></i></button>
+                        <button id="delete-set-btn"><i class="fas fa-trash"></i></button>
+                        <button id="close-editor-btn">Close</button>
+                    </div>
+                </div>
+                <button id="new-set-btn">+ New Prayer Set</button>
+            </div>
+        </div>
+
+        <button id="start-btn">Start Prayer Session</button>
+    </div>
+
+    <div id="timer-screen" class="screen">
+        <div class="timer-container">
+            <canvas id="pie-timer" width="300" height="300"></canvas>
+            <div class="timer-text">
+                <h2 id="segment-title"></h2>
+                <p id="segment-countdown" class="countdown-prominent"></p>
+                <p id="total-countdown">Total time left: </p>
+            </div>
+        </div>
+        <div class="timer-controls">
+            <button id="pause-btn"><i class="fas fa-pause"></i></button>
+            <button id="reset-btn"><i class="fas fa-stop"></i></button>
+            <button id="mute-btn"><i class="fas fa-volume-up"></i></button>
+        </div>
+    </div>
+
+    <div id="completion-screen" class="screen">
+        <h2>Great job!</h2>
+        <p class="quote">"If you remain in me and my words remain in you, ask whatever you wish, and it will be done for you."</p>
+        <p class="quote-ref">- John 15:7 (NIV)</p>
+        <div class="completion-actions">
+            <button id="restart-btn">Pray Again</button>
+            <button id="return-home-btn">Return Home</button>
+        </div>
+    </div>
+
+    <audio id="chime-sound" src="assets/chime.mp3"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>

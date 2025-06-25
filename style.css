@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5a623;
+    --background-color: #f0f4f8;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --light-text-color: #777;
+    --border-color: #e0e0e0;
+    --success-color: #50e3c2;
+    --danger-color: #d0021b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Duration Selector */
+.duration-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#duration-slider {
+    width: 100%;
+    cursor: pointer;
+}
+
+.duration-input-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    align-self: center;
+}
+
+.time-separator {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.time-input-group {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.time-input-group input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.time-input-group label {
+    font-size: 1rem;
+    color: var(--light-text-color);
+}
+
+.time-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.time-input input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.time-input label {
+    font-weight: 400;
+    color: var(--light-text-color);
+}
+
+.time-separator {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light-text-color);
+    padding-bottom: 5px;
+}
+
+/* Structure Options */
+.structure-options {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background-color: #e9ecef;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-btn:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.tab-btn:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.mode-content {
+    display: none;
+}
+
+.mode-content.active {
+    display: block;
+}
+
+#preset-list {
+    padding-left: 20px;
+    columns: 2;
+    color: var(--light-text-color);
+}
+
+#preset-list li {
+    margin-bottom: 8px;
+}
+
+/* Custom Mode */
+#custom-list-container p {
+    text-align: center;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+
+.custom-set-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+}
+
+.custom-set-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 10px;
+    color: var(--light-text-color);
+}
+
+.custom-set-actions button:hover {
+    color: var(--primary-color);
+}
+
+.custom-set-editor-container {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+}
+
+#custom-set-name, #new-step-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.add-step-container {
+    display: flex;
+    gap: 10px;
+}
+
+#new-step-input {
+    flex-grow: 1;
+}
+
+#add-step-btn {
+    padding: 0 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#custom-steps-list .step {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f3f5;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    cursor: grab;
+}
+
+#custom-steps-list .step .remove-step-btn {
+    background: none; border: none; color: var(--danger-color); cursor: pointer;
+}
+
+.editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.editor-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#save-set-btn { background-color: var(--success-color); color: white; }
+#delete-set-btn { background-color: var(--danger-color); color: white; }
+#close-editor-btn { background-color: var(--light-text-color); color: white; }
+
+#new-set-btn, #start-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+#new-set-btn:hover, #start-btn:hover {
+    background-color: #3a7ac8;
+}
+
+/* Timer Screen */
+#timer-screen {
+    align-items: center;
+    flex-direction: column;
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timer-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#segment-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.countdown-prominent {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+#total-countdown {
+    font-size: 1rem;
+    color: var(--light-text-color);
+}
+
+.timer-controls {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.timer-controls button {
+    background: var(--card-background);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: var(--primary-color);
+    transition: transform 0.2s;
+}
+
+.timer-controls button:hover {
+    transform: scale(1.1);
+}
+
+/* Completion Screen */
+#completion-screen {
+    text-align: center;
+    align-items: center;
+}
+
+.quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-top: 20px;
+    max-width: 400px;
+}
+
+.quote-ref {
+    font-size: 1rem;
+    color: var(--light-text-color);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.completion-actions button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#restart-btn { background-color: var(--primary-color); color: white; }
+#return-home-btn { background-color: var(--light-text-color); color: white; }
+
+/* Responsive */
+@media (max-width: 480px) {
+    body { padding: 10px; }
+    h1 { font-size: 2rem; }
+    .card { padding: 20px; }
+    #preset-list { columns: 1; }
+}
