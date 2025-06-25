@@ -16,6 +16,22 @@ A responsive, browser-based prayer timer web app designed to help users structur
 
 ## How to Use
 
-1.  Clone the repository or download the files.
-2.  Open the `index.html` file in your web browser.
-3.  Alternatively, you can serve the project directory using a local web server for the best experience (e.g., using Python's `http.server` or a VS Code extension like Live Server).
+To run this application locally, you will need to have Node.js and npm installed.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repository-url>
+    cd prayer-timer
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Start the server:**
+    ```bash
+    npm start
+    ```
+
+4.  Open your web browser and navigate to `http://localhost:3000`.
