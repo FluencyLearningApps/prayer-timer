@@ -1,4 +1,4 @@
-# Prayer Timer
+# Prayer Timer <img src="assets/favicons/apple-touch-icon.png" width="48" alt="Prayer Timer Icon" align="absmiddle">
 
 A responsive, browser-based prayer timer web app designed to help users structure and time their prayer sessions. Based on the concept of the 12-step prayer structure from "The Hour That Changes the World" by Dick Eastman.
 
@@ -13,6 +13,7 @@ A responsive, browser-based prayer timer web app designed to help users structur
 *   **Audio Notifications**: A gentle chime plays between segments to guide you without requiring you to look at the screen. A mute option is available.
 *   **Data Persistence**: Your custom prayer sets are automatically saved to your browser's local storage.
 *   **Responsive Design**: A clean, mobile-first interface that works beautifully on any device.
+*   **Cross-platform Favicon**: Includes a favicon that displays correctly across all modern browsers and devices.
 
 ## How to Use
 
